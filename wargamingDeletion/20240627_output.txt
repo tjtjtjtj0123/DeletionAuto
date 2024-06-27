@@ -1,0 +1,78 @@
+use WARGAMING_BILL_DB
+--drop table #tmp_twgnlogmst_2024
+
+select USERNO
+into #tmp_twgnlogmst_2024
+from TWGNLogMst with(nolock)
+where SPA_ID in (
+'2016485896'
+,'2016009938'
+,'2019976516'
+,'2021368941'
+,'2022933181'
+,'2023300201'
+,'2023223379'
+,'2023352056'
+)
+
+/*
+UPDATE A
+SET    USERNAME = ''
+      ,UPDDATE  = GETDATE()
+FROM   TAccountInfoMst A
+JOIN   #tmp_twgnlogmst_2024 B ON A.MUserNo = b.UserNo
+
+UPDATE A
+SET    USERID   = ''
+      ,USERNAME = ''
+      ,UPDDATE  = GETDATE()
+FROM   TAccountMst A
+JOIN   #tmp_twgnlogmst_2024 B ON A.MUserNo = b.UserNo
+
+UPDATE A
+SET    USERID   = ''
+      ,USERNAME = ''
+      ,UPDDATE  = GETDATE()
+FROM  TCashMst A
+JOIN   #tmp_twgnlogmst_2024 B ON A.MUserNo = b.UserNo
+
+UPDATE A
+SET    USERID   = ''
+      ,USERNAME = ''
+      ,UPDDATE  = GETDATE()
+FROM  TCashReceiptMst A
+JOIN   #tmp_twgnlogmst_2024 B ON A.UserNo = b.UserNo
+
+UPDATE A
+SET    USERID   = ''
+      ,USERNAME = ''
+      ,UPDDATE  = GETDATE()
+FROM  TPartCashMst A
+JOIN   #tmp_twgnlogmst_2024 B ON A.MUserNo = b.UserNo
+
+UPDATE A
+SET    USERID   = ''
+      ,USERNAME = ''
+FROM  TPGLogMst A
+JOIN   #tmp_twgnlogmst_2024 B ON A.UserNo = b.UserNo
+
+UPDATE A
+SET    USERID   = ''
+      ,USERNAME = ''
+      ,UPDDATE  = GETDATE()
+FROM  TWGNLogMst A
+JOIN   #tmp_twgnlogmst_2024 B ON A.UserNo = b.UserNo
+
+UPDATE A
+SET    USERID   = ''
+      ,UPDDATE  = GETDATE()
+FROM  TVAccountMst A
+JOIN   #tmp_twgnlogmst_2024 B ON A.MUserNo = b.UserNo
+
+UPDATE A
+SET    USERID   = ''
+      ,UPDDATE  = GETDATE()
+FROM  TVAccountHist A
+JOIN   #tmp_twgnlogmst_2024 B ON A.MUserNo = b.UserNo
+
+*/
